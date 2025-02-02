@@ -51,7 +51,7 @@
 ---
 
 ### Example Circuit Diagram
-*(You can add a hand-drawn or software-generated circuit diagram here for better understanding.)*
+![image](https://github.com/user-attachments/assets/fdd07941-7455-4540-b8ff-4c4c5f465da2)
 
 ---
 
