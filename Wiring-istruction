@@ -1,0 +1,61 @@
+**Wiring ESP8266 with Relays for Bulb and Fan Control**  
+You'll be using a **4-channel relay module** to control the **LEDs (bulbs)** and **fans** with your ESP8266.
+
+#### **Components Required:**
+1. **ESP8266 (NodeMCU)**
+2. **4-Channel Relay Module**
+3. **Bulbs (LEDs can be used for testing)**
+4. **Fans (or small motors for testing)**
+5. **Power Supply (12V or 5V depending on relays)**
+6. **Jumper Wires**
+7. **AC Mains (if controlling real appliances - take precautions!)**
+
+---
+
+### **Wiring Diagram**
+#### **ESP8266 Pin Mapping**
+| **ESP8266 Pin** | **Relay Input** | **Appliance** |
+|---------------|---------------|--------------|
+| D5 (GPIO14)  | IN1 (Relay 1) | LED 1 (Bulb) |
+| D6 (GPIO12)  | IN2 (Relay 2) | LED 2 (Bulb) |
+| D7 (GPIO13)  | IN3 (Relay 3) | Fan 1 |
+| D8 (GPIO15)  | IN4 (Relay 4) | Fan 2 |
+
+#### **Power Connections**
+| **Relay Pin** | **Connection** |
+|--------------|----------------|
+| **VCC** | **5V from ESP8266** |
+| **GND** | **GND from ESP8266** |
+| **IN1, IN2, IN3, IN4** | **Connect to ESP8266 GPIO Pins** |
+
+---
+
+### **Relay Wiring with AC Appliances**
+**⚠️ CAUTION: Handling AC mains is dangerous! If you're unsure, ask an expert!**  
+Each **relay module** acts as a switch. The relay has three terminals:  
+
+- **COM (Common):** Connect this to one terminal of the appliance.
+- **NO (Normally Open):** Connect this to the live wire of the AC mains.
+- **NC (Normally Closed):** Not needed for this setup.
+
+#### **Relay Wiring Steps:**
+1. **Power Supply:** Connect **VCC (5V) and GND** of the relay module to ESP8266 **5V and GND**.
+2. **Relay Control:** Connect **IN1–IN4** to **ESP8266 GPIOs (D5, D6, D7, D8)**.
+3. **AC Wiring:**
+   - **Live wire (Phase) from AC mains → Relay COM**
+   - **Relay NO → Appliance (Bulb or Fan)**
+   - **Neutral wire from AC mains → Directly to the appliance**
+
+---
+
+### **Working of Relays in Code**
+- When you **turn ON a device** (e.g., `L1 ON` command), the **ESP8266 sends a LOW signal to the relay**, closing the circuit and turning on the device.
+- When you **turn OFF a device** (e.g., `L1 OFF` command), the **ESP8266 sends a HIGH signal**, opening the circuit and turning off the device.
+
+---
+
+### **Safety Tips**
+- **Use an optocoupled relay module** for extra safety.
+- **Do not touch live wires** while connecting AC appliances.
+- **Use heat shrink tubing or electrical tape** on exposed wires.
+- **If unsure, use a low-voltage test setup first** (like 12V LED bulbs and DC fans).
