@@ -14,8 +14,8 @@
 | ESP8266 (NodeMCU) | Relay Module | Appliance |
 |--------------------|-------------|-----------|
 | D5 (GPIO 14)      | IN1         | LED 1 (Bulb 1) |
-| D6 (GPIO 12)      | IN2         | LED 2 (Bulb 2) |
-| D7 (GPIO 13)      | IN3         | Fan 1 |
+| D6 (GPIO 12)      | IN2         | Fan 1 |
+| D7 (GPIO 13)      | IN3         | LED 2 (Bulb 2) |
 | D8 (GPIO 15)      | IN4         | Fan 2 |
 | GND               | GND         | - |
 | 3.3V              | VCC         | - |
@@ -51,7 +51,8 @@
 ---
 
 ### Example Circuit Diagram
-![image](https://github.com/user-attachments/assets/fdd07941-7455-4540-b8ff-4c4c5f465da2)
+![image](https://github.com/user-attachments/assets/7701e413-224c-4e31-91e2-24296d36ec23)
+
 
 ---
 
