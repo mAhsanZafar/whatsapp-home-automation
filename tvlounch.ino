@@ -3,8 +3,8 @@
 ThingESP8266 thing("MAhsanZafar", "WAAI", "MAhsanZafar");
 
 const int LED_PIN_1 = D5;     // D5 or GPIO 14
-const int LED_PIN_2 = D6;     // D6 or GPIO 12
-const int FAN_PIN_1 = D7;     // D7 or GPIO 13
+const int FAN_PIN_1 = D6;     // D6 or GPIO 12
+const int LED_PIN_2 = D7;     // D7 or GPIO 13
 const int FAN_PIN_2 = D8;     // D8 or GPIO 15
 int S[4] = {0,0,0,0};
 String Status[4] = {"","","",""},past="";
@@ -49,24 +49,24 @@ String HandleResponse(String query)
             return("*TV Launch LED 1 OFF 💡*");
           }  
   else if (query == "l2 on" && past=="TL") {
-            S[1]=1;
+            S[2]=1;
             
             return("*TV Launch LED 2 ON 💡*");
           }  
   else if (query == "l2 off" && past=="TL") {
               digitalWrite(LED_PIN_2, LOW);
-              S[1]=0;
+              S[2]=0;
               
             return("*TV Launch LED 2 OFF 💡*");
           }
   else if (query == "f1 on" && past=="TL") {
-            S[2]=1;
+            S[1]=1;
             
             return("*TV Launch FAN 1 ON 🪭*");
           }  
   else if (query == "f1 off" && past=="TL") {
               digitalWrite(FAN_PIN_1, LOW); 
-            S[2]=0;
+            S[1]=0;
             
             return("*TV Launch FAN 1 OFF 🪭*");
           }  
@@ -86,8 +86,8 @@ else if (query == "s") {
 }
   else if(query =="status for tv launch"){
     Status[0] = S[0] ? "*ON*" : "*OFF*";
-    Status[1] = S[1] ? "*ON*" : "*OFF*";
     Status[2] = S[2] ? "*ON*" : "*OFF*";
+    Status[1] = S[1] ? "*ON*" : "*OFF*";
     Status[3] = S[3] ? "*ON*" : "*OFF*";
     
     return "*TV Launch LED 1 is* " + Status[0] + " 💡\n" +
@@ -112,13 +112,13 @@ void loop()
     digitalWrite(LED_PIN_1, LOW);
   }
 
-  if (S[1] == 1 ) {
+  if (S[2] == 1 ) {
     digitalWrite(LED_PIN_2, HIGH);
   } else {
     digitalWrite(LED_PIN_2, LOW);
   }
 
-  if (S[2] == 1 ) {
+  if (S[1] == 1 ) {
     digitalWrite(FAN_PIN_1, HIGH);
   } else {
     digitalWrite(FAN_PIN_1, LOW);
