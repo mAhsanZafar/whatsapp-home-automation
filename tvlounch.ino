@@ -1,6 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <ThingESP.h>
-ThingESP8266 thing("MAhsanZafar", "WAAI", "MAhsanZafar");
+ThingESP8266 thing("YOUR_USERNAME", "YOUR_DEVICE_NAME", "YOUR_DEVICE_KEY");
+
 
 const int LED_PIN_1 = D5;     // D5 or GPIO 14
 const int FAN_PIN_1 = D6;     // D6 or GPIO 12
@@ -17,7 +18,7 @@ void setup()
   pinMode(FAN_PIN_1, OUTPUT);
   pinMode(FAN_PIN_2, OUTPUT);
   Serial.begin(74880);
-  thing.SetWiFi("MAZ", "12345678");
+  thing.SetWiFi("YOUR_WIFI_SSID", "YOUR_WIFI_PASSWORD");
   thing.initDevice();
   Serial.println("");
   Serial.println("WiFi connected");
